@@ -2,13 +2,10 @@ Wow-Arch is a user-friendly, terminal-based tool designed to help beginners set 
 
 ## **Installation Instructions**  
 
-### **Pre-installation**
-You need to install Python to install Wow-Arch
-Open a terminal and run:
+**Wow-Arch requires Python 3.x to run. If you don’t have it installed, you can install it with:**
 ```bash
 sudo pacman -S --needed python
 ```
-This will do nothing if it is already installed.
 
 ### **1. Clone the Repository**  
 First, open a terminal and clone the Wow-Arch repository:  
@@ -18,7 +15,7 @@ git clone https://github.com/yourusername/wow-arch.git
 ```
 Then go into the directory:
 ```bash
-cd wow-arch
+cd Wow-Arch
 ```
 
 ---
@@ -55,6 +52,9 @@ pip uninstall wowarch
 ```
 
 ---
+
+## **Not working?**
+If pip returns an error, try pipx instead.
 
 ## **Alternative: Run Without Installation**  
 If you prefer to run *Wow-Arch* without installing it, use:  
