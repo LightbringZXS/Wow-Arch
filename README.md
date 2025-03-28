@@ -2,6 +2,11 @@ Wow-Arch is a user-friendly, terminal-based tool designed to help beginners set 
 
 ## **Installation Instructions**  
 
+**You need to install Python to use this program**
+```bash
+sudo pacman -S --needed python
+```
+
 ### **1. Clone the Repository**  
 First, open a terminal and clone the Wow-Arch repository:  
 
