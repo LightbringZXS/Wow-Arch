@@ -43,8 +43,8 @@ If you need general help with Arch Linux, these online communities are great pla
 💬 Arch Linux IRC Chat – Real-time help on Libera Chat (#archlinux).
 🔗 https://wiki.archlinux.org/title/IRC_channel
 
-🤝 r/archlinux (Reddit) – A friendly community for Arch users of all experience levels.
-🔗 https://www.reddit.com/r/archlinux/
+🤝 r/arch (Reddit) – A friendly community for Arch users of all experience levels.
+🔗 https://www.reddit.com/r/arch/
 
 📢 Arch Linux Discord – A helpful live chat community for Arch users.
 🔗 https://discord.gg/archlinux
