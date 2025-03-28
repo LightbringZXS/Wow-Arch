@@ -7,6 +7,9 @@ First, open a terminal and clone the Wow-Arch repository:
 
 ```bash
 git clone https://github.com/yourusername/wow-arch.git
+```
+Then go into the directory:
+```bash
 cd wow-arch
 ```
 
