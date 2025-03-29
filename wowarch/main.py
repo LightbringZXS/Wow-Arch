@@ -75,7 +75,10 @@ def main():
         print("3. Clear Terminal")
         print("4. Exit")
 
-        choice = input("Enter your choice: ")
+        try:
+            choice = input("Enter your choice: ")
+        except (KeyboardInterrupt, EOFError):
+            choice = "4"
 
         if choice == "1":
             update_system()
@@ -84,7 +87,7 @@ def main():
         elif choice == "3":
             clear_terminal()
         elif choice == "4":
-            print("Goodbye!")
+            print("\nGoodbye!")
             break
         else:
             print("Invalid choice. Please try again.")
