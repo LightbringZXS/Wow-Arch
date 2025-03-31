@@ -1,4 +1,5 @@
 import subprocess
+import sys
 import time
 
 print("Welcome to Wow-Arch! 🎉\n")
@@ -28,6 +29,38 @@ def run_command(command, description):
             if retry != "y":
                 return False
 
+class HomeSreen:
+    @staticmethod
+    def print_options():
+        print("1. Update System")
+        print("2. About")
+        print("3. Clear Terminal")
+        print("4. Exit")
+
+    @staticmethod
+    def get_user_choice():
+        while True:
+            try:
+                choice = int(input("Enter your choice: "))
+                match choice:
+                    case 1:
+                        update_system()
+                    case 2:
+                        about_section()
+                    case 3:
+                        clear_terminal()
+                    case 4:
+                        sys.exit("Goodbye!")
+                    case _:
+                        pass
+            except ValueError:
+                pass
+
+
+def main():
+    HomeSreen.print_options()
+    HomeSreen.get_user_choice()
+
 
 def update_system():
     explain_step(
@@ -53,6 +86,7 @@ def update_system():
     explain_step("✅ System update complete!")
 
 
+
 def about_section():
     try:
         with open("help.txt", "r") as help_file:
@@ -62,35 +96,12 @@ def about_section():
     input("Press enter to continue")
 
 
+
 def clear_terminal():
     explain_step("To do this yourself type 'clear' outside of Wow-Arch")
     input("Press enter to continue")
     run_command("clear", "Clearing the terminal... 🫰")
 
-
-def main():
-    while True:
-        print("1. Update System")
-        print("2. About")
-        print("3. Clear Terminal")
-        print("4. Exit")
-
-        try:
-            choice = input("Enter your choice: ")
-        except (KeyboardInterrupt, EOFError):
-            choice = "4"
-
-        if choice == "1":
-            update_system()
-        elif choice == "2":
-            about_section()
-        elif choice == "3":
-            clear_terminal()
-        elif choice == "4":
-            print("\nGoodbye!")
-            break
-        else:
-            print("Invalid choice. Please try again.")
 
 
 if __name__ == "__main__":
