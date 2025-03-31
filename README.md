@@ -5,4 +5,8 @@ Wow-Arch is a user-friendly, terminal-based tool designed to help beginners set 
 ## **Contributing**  
 Feel free to open issues, suggest improvements, or contribute code! Pull requests are welcome.  
 
+## **Discord server**
+Join the Discord for news, help, and to collaborate!
+https://discord.gg/pvty47Tj
+
 ---
