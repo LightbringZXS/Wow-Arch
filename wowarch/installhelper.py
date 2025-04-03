@@ -1,6 +1,5 @@
 import curses
 import os
-import sys
 import textwrap
 
 
