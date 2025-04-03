@@ -81,19 +81,39 @@ def install_packages() -> None:
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
-        os.system("python installhelper.py")
+        subprocess.run(["python", "-m", "wowarch.installhelper"], check=True)
     except FileNotFoundError:
         print("Yay is not installed. Some packages may not be available.")
         print("Would you like to install Yay? (y/n): ")
         response = input().lower()
         if response == "y":
-            print("Installing Yay... (sudo pacman -S yay)")
-            try:
-                subprocess.run(["sudo", "pacman", "-S", "yay"], check=True)
-            except subprocess.CalledProcessError:
-                print("Error installing Yay!")
+            print("Installing Yay...")
+            time.sleep(1.5)
+            run_command(
+                "sudo pacman -S --needed git base-devel",
+                "Installing dependencies for Yay... (pacman -S --needed git base-devel)",
+            )
+            run_command(
+                "cd ~ && git clone https://aur.archlinux.org/yay.git",
+                "Cloning Yay from the AUR... (git clone https://aur.archlinux.org/yay.git)",
+            )
+            print("Navigating to the Yay directory... (cd yay)")
+            run_command(
+                "cd ~/yay && makepkg -si",
+                "Building and installing Yay... (makepkg -si)",
+            )
+            print("Yay installed successfully! 🎉")
+            print("The clone of thye Yay repository is no longer needed.")
+            print("Would you like to remove the Yay directory? (y/n): ")
+            response = input().lower()
+            if response == "y":
+                os.system("rm -rf ~/yay")
+                print("Yay directory removed successfully! 🎉")
+            elif response == "n":
+                print("Yay directory will not be removed.")
+            else:
+                print("Invalid input! Please try again.")
                 return
-            print("Yay has been installed!")
         elif response == "n":
             print("Yay will not be installed.")
             return
