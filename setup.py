@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='wowarch',
-    version='0.1',
+    version='0.3',
     packages=find_packages(),
     install_requires=[
         'requests',
@@ -10,6 +10,7 @@ setup(
     entry_points={
         'console_scripts': [
             'wowarch=wowarch.main:main',
+            'wowarch.installhelper=wowarch.installhelper:main',
         ],
     },
     include_package_data=True,
