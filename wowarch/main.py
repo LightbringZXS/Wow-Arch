@@ -1,6 +1,7 @@
 import subprocess
 import sys
 import time
+import os
 
 
 def press_enter(message: str) -> None:
@@ -31,7 +32,8 @@ class HomeSreen:
         print("1. Update System")
         print("2. About")
         print("3. Clear Terminal")
-        print("4. Exit")
+        print("4. install packages")
+        print("5. Exit")
 
     @staticmethod
     def get_user_choice() -> None:
@@ -39,10 +41,12 @@ class HomeSreen:
             try:
                 choice = int(input("Enter your choice: "))
             except (KeyboardInterrupt, EOFError):
-                choice = 4  # exit program
+                choice = 5  # exit program
             except ValueError:
                 continue
             match choice:
+                case 0:
+                    HomeSreen.print_options()
                 case 1:
                     update_system()
                 case 2:
@@ -50,6 +54,8 @@ class HomeSreen:
                 case 3:
                     clear_terminal()
                 case 4:
+                    install_packages()
+                case 5:
                     print("\nGoodbye!")
                     sys.exit(0)
 
@@ -67,6 +73,33 @@ def main() -> None:
     HomeSreen.print_options()
     HomeSreen.get_user_choice()
 
+def install_packages() -> None:
+    try:
+        subprocess.run(
+            ["yay", "--version"],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
+        os.system("python installhelper.py")
+    except FileNotFoundError:
+        print("Yay is not installed. Some packages may not be available.")
+        print("Would you like to install Yay? (y/n): ")
+        response = input().lower()
+        if response == "y":
+            print("Installing Yay... (sudo pacman -S yay)")
+            try:
+                subprocess.run(["sudo", "pacman", "-S", "yay"], check=True)
+            except subprocess.CalledProcessError:
+                print("Error installing Yay!")
+                return
+            print("Yay has been installed!")
+        elif response == "n":
+            print("Yay will not be installed.")
+            return
+        else:
+            print("Invalid input! Please try again.")
+            return
 
 def update_system() -> None:
     explain_step(
